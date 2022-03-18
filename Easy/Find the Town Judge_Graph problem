@@ -1,0 +1,22 @@
+class Solution(object):
+    def findJudge(self, n=2, trust=[[1,2]]):
+        """
+        :type n: int
+        :type trust: List[List[int]]
+        :rtype: int
+        """
+        if len(trust)<n-1:
+            return -1
+        
+        inarray=[0]*(n+1)
+        outarray=[0]*(n+1)
+        
+        for  out_, in_ in trust:
+            outarray[out_]+=1
+            inarray[in_]+=1
+            
+            
+        for i in range(1,n+1):
+            if inarray[i]==n-1 and outarray[i]==0:
+                return i
+        return -1

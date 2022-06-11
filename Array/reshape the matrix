@@ -1,0 +1,23 @@
+class Solution(object):
+    def matrixReshape(self, mat, r, c):
+        """
+        :type mat: List[List[int]]
+        :type r: int
+        :type c: int
+        :rtype: List[List[int]]
+        """
+        new=[[0 for _ in range(c)] for _ in range(r)]
+        
+        n=len(mat[0])
+        m=len(mat)
+        t=n*m
+        if r*c!=t: return mat 
+        k=0
+        for i in range(m):
+            for j in range(n):
+                new[k//c][k%c]=mat[i][j]
+                k+=1
+        return new
+        
+        
+        

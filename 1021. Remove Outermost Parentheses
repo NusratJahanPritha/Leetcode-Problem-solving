@@ -1,0 +1,26 @@
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        stack <char> store;
+        string res="";
+
+        for (auto c:s){
+            if (c== '('){
+                if ( store.size()>0){
+                   res+=c;
+                }
+                store.push(c);
+            }
+
+            else{
+                store.pop();
+                if (store.size()>0){
+                    res+=c;
+                }
+                
+            }
+        }
+        return res;
+    }
+
+};

@@ -24,3 +24,29 @@ public:
     }
 
 };
+ Another approach:
+ class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        int count=0;
+        string res="";
+
+        for (auto c:s){
+            if (c== '('){
+                if(count>0){
+                    res+=c;
+
+                }
+                count++; //count is working like stack of the previous solution
+            }else{
+                count--;
+                if(count>0){
+                    res+=c;
+                }
+            }
+        }
+        return res;
+    }
+};
+//ref:https://www.youtube.com/watch?v=MLfAFCkzChU&ab_channel=Pepcoding
+//https://www.geeksforgeeks.org/reduce-string-by-removing-outermost-parenthesis-from-each-primitive-substring/

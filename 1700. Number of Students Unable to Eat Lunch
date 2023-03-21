@@ -1,0 +1,65 @@
+class Solution {
+public:
+    int countStudents(vector<int>& students, vector<int>& sandwiches) {
+
+        deque<int>q;
+
+        for (int i=0; i<students.size(); i++){
+            q.push_back(students[i]);
+        }
+
+        int i=0,k=0;
+        
+        while(q.size()!=0 && k!=q.size()){
+            if (q.front()!=sandwiches[i]){
+                q.push_back(q.front());
+                k++;
+            }
+            else{
+                k=0;
+                i++;
+            }
+            q.pop_front();
+            
+        }
+      return q.size();
+    }
+        
+    
+};
+
+
+//For realizing the deque push_back and pop_front:
+//https://www.quora.com/What-is-the-meaning-of-vector-int-vect
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <deque>
+#include <vector>
+using namespace std;
+int main() {
+    // Write C++ code here
+    vector<int> a={1,2,3,4,5};
+    // vector<int> b={1,2,3,4,5}
+    
+    deque<int>q;
+    
+    for(int i=1; i<=5; i++){
+        q.push_back(i);
+        
+    }
+    
+    for (int k=0; k<q.size(); k++){
+        cout<<q[k]<<' ';
+        
+    }
+    cout<<"\n";
+    
+    q.push_back(q.front());
+        for (int k=0; k<q.size(); k++){
+        cout<<q[k]<<' ';
+    }
+    return 0;
+}
+
+Result: 1 2 3 4 5  
+        1 2 3 4 5 1 

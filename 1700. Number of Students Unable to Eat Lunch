@@ -34,12 +34,11 @@ public:
 // Online C++ compiler to run C++ program online
 #include <iostream>
 #include <deque>
-#include <vector>
+
 using namespace std;
 int main() {
     // Write C++ code here
-    vector<int> a={1,2,3,4,5};
-    // vector<int> b={1,2,3,4,5}
+
     
     deque<int>q;
     

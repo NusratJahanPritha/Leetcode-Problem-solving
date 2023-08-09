@@ -1,0 +1,16 @@
+In any range the number of odd and even numbers are equal. So we can divide the length of the range (e.g. high-low) by 2. But when there is odd number in the high or low, then we have an extra odd number and then we have add extra 1.
+
+So, only when both the high and low are even, then we can get the ans just dividing the length by 2. In other 3 cases, (e.g. odd-odd, odd-even, even-odd), we have to add extra 1.
+
+
+class Solution {
+public:
+    int countOdds(int low, int high) {
+        int count=(high-low)/2;;
+        if (high%2!=0 || low%2!=0){
+            count=count+1;
+        }
+        return count;
+
+    }
+};

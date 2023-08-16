@@ -1,0 +1,48 @@
+Approach 1:
+class Solution {
+public:
+    int largestPerimeter(vector<int>& nums) {
+        int sum=0;
+        sort (nums.begin(), nums.end());
+        for (int i=0; i< nums.size()-2; i++){
+            if(nums[i]+nums[i+1]>nums[i+2]){
+                sum=max(sum,nums[i]+nums[i+1]+nums[i+2]);
+            }
+            
+        }
+        return sum;
+
+    }
+};
+
+Approach 2:
+class Solution {
+public:
+    int largestPerimeter(vector<int>& nums) {
+        sort(nums.begin(), nums.end(), greater()); //descending sorting
+        
+        for (int i=0;  i<nums.size()-2;  i++){
+            if(nums[i+1]+nums[i+2]>nums[i]){
+                return nums[i+1]+nums[i+2]+nums[i]; 
+            }
+        }
+        return 0;
+        
+    }
+};
+
+Approach 3:
+class Solution {
+public:
+    int largestPerimeter(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        
+        for (int i=nums.size()-3; i>=0; i--){
+            if(nums[i]+nums[i+1]>nums[i+2]){
+                return nums[i+1]+nums[i+2]+nums[i]; 
+            }
+        }
+        return 0;
+        
+    }
+};

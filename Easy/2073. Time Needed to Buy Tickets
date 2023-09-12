@@ -1,0 +1,36 @@
+Approach 1:
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        int res=0;
+        int lmt=tickets.size();
+        while(tickets[k]){
+            for(int i=0; i<lmt && tickets[k]; i++){
+            if(tickets[i]){
+                tickets[i]--;
+                res++;
+            }
+        }
+        }
+        return res;
+        
+    }
+};
+
+Approach 2:
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        int res=0;
+        int lmt=tickets.size();
+        while(true){
+            for (int i=0; i<lmt; i++){
+            if(tickets[i]==0) continue;
+            tickets[i]--;
+            res++;
+            if(tickets[k]==0) return res;
+
+            }   
+        }  
+    }       
+};

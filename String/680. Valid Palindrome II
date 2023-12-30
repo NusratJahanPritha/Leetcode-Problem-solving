@@ -1,0 +1,19 @@
+class Solution(object):
+    def validPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        left=0
+        right=len(s)-1
+
+        while left<right:
+            if s[left]==s[right]:
+                left+=1
+                right-=1
+            else:
+                skipRight=s[left:right]
+                skipLeft=s[left+1:right+1]
+                return (skipRight==skipRight[::-1] 
+                        or skipLeft==skipLeft[::-1]) 
+        return True  
